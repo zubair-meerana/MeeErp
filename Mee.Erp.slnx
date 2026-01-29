@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Mee.Erp.Configuration/Mee.Erp.Configuration.csproj" />
+  <Project Path="Mee.Erp.Core/Mee.Erp.Core.csproj" />
+  <Project Path="Mee.Erp.Finance.Core/Mee.Erp.Finance.Core.csproj" />
+  <Project Path="Mee.Erp.Finance.Localization.UAE/Mee.Erp.Finance.Localization.UAE.csproj" />
+  <Project Path="Mee.Erp.Shared.Kernel/Mee.Erp.Shared.Kernel.csproj" />
+</Solution>
