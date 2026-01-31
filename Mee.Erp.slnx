@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/tests/">
+    <Project Path="tests/Mee.Erp.Finance.Core.Tests/Mee.Erp.Finance.Core.Tests.csproj" />
+  </Folder>
   <Project Path="Mee.Erp.Configuration/Mee.Erp.Configuration.csproj" />
   <Project Path="Mee.Erp.Core/Mee.Erp.Core.csproj" />
   <Project Path="Mee.Erp.Finance.Core/Mee.Erp.Finance.Core.csproj" />
