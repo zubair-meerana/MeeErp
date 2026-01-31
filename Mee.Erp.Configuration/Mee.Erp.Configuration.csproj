@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mee.Erp.Core\Mee.Erp.Core.csproj" />
+    <ProjectReference Include="..\Mee.Erp.Finance.Core\Mee.Erp.Finance.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.2" />
+  </ItemGroup>
+
 </Project>
