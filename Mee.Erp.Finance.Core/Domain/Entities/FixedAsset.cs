@@ -37,4 +37,6 @@ public class FixedAsset : BaseEntity
 
     public bool IsDisposed { get; set; } = false;
     public DateTime? DisposalDate { get; set; }
+
+	public virtual AssetCategory AssetCategory { get; set; }
 }

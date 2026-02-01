@@ -26,4 +26,6 @@ public class SalesInvoice : BaseEntity
     public Guid? JournalId { get; set; }
 
     public ICollection<SalesInvoiceLine> Lines { get; set; } = new List<SalesInvoiceLine>();
+
+	public virtual Customer Customer { get; set; }
 }

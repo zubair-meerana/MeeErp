@@ -31,4 +31,6 @@ public class PurchaseInvoice : BaseEntity
     public Guid? JournalId { get; set; }
 
     public ICollection<PurchaseInvoiceLine> Lines { get; set; } = new List<PurchaseInvoiceLine>();
+
+	public virtual Supplier Supplier { get; set; }
 }
