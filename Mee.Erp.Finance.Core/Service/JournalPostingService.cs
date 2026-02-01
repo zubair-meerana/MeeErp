@@ -100,8 +100,25 @@ public class JournalPostingService : IJournalPostingService
         if (journal.Status != JournalStatus.Draft) 
             throw new Exception("Only draft journals can be posted.");
 
-        // 3. Validate Balance
-        decimal totalDebits = journal.Entries.Sum(e => e.Debit);
+		// 2.1 Validate Period
+		var period = await _context.FinancialPeriods
+			.FirstOrDefaultAsync(p =>
+				p.CompanyId == journal.CompanyId &&
+				p.StartDate <= journal.JournalDate &&
+				p.EndDate >= journal.JournalDate);
+
+		if (period == null)
+		{
+			// Optional: Allow if no periods exist, OR Strict: Block. 
+			// For Enterprise, we usually block if period is undefined.
+			 throw new Exception($"No financial period defined for date {journal.JournalDate.ToShortDateString()}");
+		}
+		else if (period.IsClosed)
+		{
+			throw new Exception($"Financial period '{period.Name}' is closed. Cannot post transaction.");
+		}
+		// 3. Validate Balance
+		decimal totalDebits = journal.Entries.Sum(e => e.Debit);
         decimal totalCredits = journal.Entries.Sum(e => e.Credit);
 
         if (totalDebits != totalCredits) 

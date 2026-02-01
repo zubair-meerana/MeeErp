@@ -11,11 +11,13 @@ namespace Mee.Erp.Finance.Core.Persistence;
 public class FinanceDbContext : DbContext
 {
     // We need a DbSet for every entity that should become a table.
-    // GL Module
+// GL Module
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Journal> Journals { get; set; }
     public DbSet<JournalEntry> JournalEntries { get; set; }
     public DbSet<LedgerEntry> LedgerEntries { get; set; }
+    public DbSet<FinancialPeriod> FinancialPeriods { get; set; }
+    public DbSet<ExchangeRate> ExchangeRates { get; set; }
 
     // AP Module
     public DbSet<Supplier> Suppliers { get; set; }
@@ -37,7 +39,13 @@ public class FinanceDbContext : DbContext
     // Fixed Assets Module
     public DbSet<AssetCategory> AssetCategories { get; set; }
     public DbSet<FixedAsset> FixedAssets { get; set; }
-    public DbSet<FixedAssetDepreciation> FixedAssetDepreciations { get; set; }
+public DbSet<FixedAssetDepreciation> FixedAssetDepreciations { get; set; }
+    public DbSet<CreditNote> CreditNotes { get; set; }
+    public DbSet<CreditNoteLine> CreditNoteLines { get; set; }
+    public DbSet<DebitNote> DebitNotes { get; set; }
+    public DbSet<DebitNoteLine> DebitNoteLines { get; set; }
+    public DbSet<Budget> Budgets { get; set; }
+    public DbSet<BudgetLine> BudgetLines { get; set; }
 
     public FinanceDbContext(DbContextOptions<FinanceDbContext> options) : base(options) { }
 

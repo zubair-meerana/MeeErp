@@ -1,4 +1,4 @@
-﻿using Mee.Erp.Finance.Core.Contracts.Interfaces;
+using Mee.Erp.Finance.Core.Contracts.Interfaces;
 using Mee.Erp.Finance.Core.Domain.Entities;
 using Mee.Erp.Finance.Core.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -55,8 +55,15 @@ public class AccountService : IAccountService
 			.ToListAsync();
 	}
 
-	public async Task<Account> GetAccountByIdAsync(Guid id)
+public async Task<Account> GetAccountByIdAsync(Guid id)
 	{
-		return await _context.Accounts.FindAsync(id);
+		return await _context.Accounts.FindAsync(id)
+			?? throw new Exception("Account not found");
 	}
+
+	public async Task<Account?> GetAccountByNumberAsync(string accountNumber, Guid companyId)
+	{
+		return await _context.Accounts
+			.FirstOrDefaultAsync(a => a.AccountNumber == accountNumber && a.CompanyId == companyId);
+}
 }
